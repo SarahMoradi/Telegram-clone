@@ -44,18 +44,11 @@ const Signup = () => {
             </div>
             <div>
               <p className={`${styles.description_text}`}>
-                Please choose your country and enter your full information.
+                Please enter your phone number and enter your full information.
               </p>
             </div>
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-            {/* <TextField
-              id="standard-basic"
-              label="Phone Number"
-              variant="outlined"
-              className="mt-3"
-              style={{ width: "270px" }}
-            /> */}
             <FormControl variant="outlined" style={{ width: "270px" }}>
               <InputLabel
                 style={{ width: "270px", marginLeft: "-12px" }}
@@ -96,7 +89,7 @@ const Signup = () => {
               className="mt-5"
               style={{ width: "270px" }}
             >
-              Contained
+              Sign up
             </Button>
           </div>
         </Col>
