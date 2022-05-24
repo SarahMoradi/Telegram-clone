@@ -1,0 +1,15 @@
+.login_header {
+  width: 100vw;
+  height: 50px;
+  background-color: #537f9f;
+  color: #fff;
+  font-weight: bold;
+}
+.header_signup_link {
+  text-decoration: none !important;
+  color: #fff;
+  cursor: pointer;
+}
+.header_signup_link:hover {
+  color: #e0e3e8;
+}
