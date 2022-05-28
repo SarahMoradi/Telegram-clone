@@ -21,7 +21,21 @@ const ContactChatList = () => {
             <GrFormSearch size={32} className={`${styles.search_icon}`} />
           </div>
         </div>
-        <div className={`${styles.contact_chats_holder}`}></div>
+        <div className={`${styles.contact_chats_holder} mx-1`}>
+          <div className="d-flex align-items-center">
+            <img
+              src="/user.png"
+              alt="userImage"
+              width={31}
+              height={30}
+              className="mx-2"
+            />
+            <div>
+            <div className={`${styles.contact_name}`}>John Doa</div>
+            <div className={`${styles.last_message}`}>where are you right now?</div>
+            </div>
+          </div>
+        </div>
       </div>
     </Col>
   );
