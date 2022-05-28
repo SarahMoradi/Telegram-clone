@@ -49,3 +49,11 @@
   color: #fff;
   margin-top: -5px;
 }
+@media screen and (max-width: 991px) {
+  .nav_bar_section {
+    display: none !important;
+  }
+  .main_header {
+    display: none !important;
+  }
+}
