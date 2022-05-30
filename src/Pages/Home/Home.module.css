@@ -21,6 +21,7 @@
   width: 100%;
   height: 50px;
   background-color: #fff;
+  padding: 30px 0;
 }
 .contact_name_logo {
   color: #fff;
@@ -49,17 +50,47 @@
   color: #fff;
   margin-top: -5px;
 }
-@media screen and (max-width: 991px) {
-  .nav_bar_section {
+@media screen and (max-width: 1110px) {
+  .chat_bar_section {
     display: none !important;
+    height: 100vh !important;
   }
   .main_header {
     display: none !important;
   }
 }
+@media screen and (min-width: 1111px) and (max-width: 1199px) {
+  .chat_bar_section {
+    display: none !important;
+    height: 100vh !important;
+  }
+}
 .contact_chats_holder img {
-  margin-top: 10px;
   border-radius: 50%;
+  margin: 0 5px 0 15px !important;
 }
 .contact_name {
+  font-size: 14px;
+  font-weight: bold;
+}
+.last_message {
+  font-size: 13px;
+  color: gray;
+  margin-top: -3px;
+}
+.user_last_time_message {
+  font-size: 13px;
+  color: rgb(80, 78, 78);
+  margin-right: 20px;
+  margin-top: -25px;
+}
+.chat_notication_shade {
+  width: 22px;
+  height: 22px;
+  background-color: rgb(63, 187, 63);
+  border-radius: 50%;
+  margin: 3px auto 0;
+}
+.chat_notication_shade span {
+  color: #fff;
 }

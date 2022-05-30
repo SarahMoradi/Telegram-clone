@@ -3,7 +3,7 @@ import { Col } from "reactstrap";
 import styles from "../Home.module.css";
 const DisplayChatScreen = () => {
   return (
-    <Col sm="12" lg="9">
+    <Col sm="12" xl="9">
       <div
         className={`${styles.chat_bar_section} d-flex justify-content-between px-4`}
       >
@@ -16,7 +16,7 @@ const DisplayChatScreen = () => {
             height={30}
             className="mx-2"
           />
-          <div>
+          <div className="mx-1">
             <div className={`${styles.chat_account_name}`}>Account</div>
             <div className={`${styles.account_last_seen}`}>
               last seen at 15:52 AM
