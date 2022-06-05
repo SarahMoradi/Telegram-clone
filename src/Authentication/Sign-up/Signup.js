@@ -8,14 +8,18 @@ import InputLabel from "@mui/material/InputLabel";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import mainApi from "../../Services/axios-config";
 import styles from "./Signup.module.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Signup = () => {
+  const history = useNavigate();
   const [userData, setUserData] = useState({
-    id: "",
     phoneNumber: "",
-    userName: "",
+    firstName: "",
+    lastName: "",
     password: "",
   });
   const userdataChangeHandler = (e) => {
@@ -23,12 +27,17 @@ const Signup = () => {
     console.log(userData);
   };
   const submitHandler = () => {
-    axios
-      .post("URL", userData)
-      .then(() => {
-        console.log("asd");
+    mainApi
+      .post("/user/register", userData)
+      .then((res) => {
+        console.log(res);
+        toast.success("کاربر با موفقیت ثبت نام شد");
+        history("/authentication/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.data);
+        toast.error(err.response.data.message);
+      });
   };
   return (
     <div className={`${styles.signup_container}`}>
@@ -86,20 +95,28 @@ const Signup = () => {
                 value={userData.phoneNumber}
                 onChange={userdataChangeHandler}
                 startAdornment={
-                  <InputAdornment position="start" variant="outlined">
-                    +98{" "}
-                  </InputAdornment>
+                  <InputAdornment position="start">+98 </InputAdornment>
                 }
               />
             </FormControl>
             <TextField
               id="standard-basic"
-              label="Username"
-              name="userName"
+              label="firstName"
+              name="firstName"
               variant="standard"
               className="mt-4"
               style={{ width: "270px" }}
-              value={userData.userName}
+              value={userData.firstName}
+              onChange={userdataChangeHandler}
+            />
+            <TextField
+              id="standard-basic"
+              label="lastName"
+              name="lastName"
+              variant="standard"
+              className="mt-4"
+              style={{ width: "270px" }}
+              value={userData.lastName}
               onChange={userdataChangeHandler}
             />
             <TextField

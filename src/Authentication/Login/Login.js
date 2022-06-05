@@ -7,16 +7,31 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import mainApi from "../../Services/axios-config";
 import styles from "./Login.module.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
+  const history = useNavigate();
   const [login, setLogin] = useState({ id: "", phoneNumber: "", password: "" });
   const userdataChangeHandler = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
   const loginHandler = () => {
-    console.log(login);
+    mainApi
+      .post("/user/login", login)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.data.token);
+        toast.success("کاربر با موفقیت وارد شد");
+        history("/chat");
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+        toast.error(err.response.data.message);
+      });
   };
   return (
     <div className={`${styles.login_container}`}>
@@ -69,9 +84,7 @@ const Login = () => {
                 value={login.phoneNumber}
                 onChange={userdataChangeHandler}
                 startAdornment={
-                  <InputAdornment position="start" variant="outlined">
-                    +98{" "}
-                  </InputAdornment>
+                  <InputAdornment position="start">+98 </InputAdornment>
                 }
               />
             </FormControl>
