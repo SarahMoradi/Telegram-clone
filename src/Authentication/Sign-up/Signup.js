@@ -1,13 +1,35 @@
-import { Link } from "react-router-dom";
-import styles from "./Signup.module.css";
 import { Col, Row } from "reactstrap";
-import TextField from "@mui/material/TextField";
+
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
+import InputLabel from "@mui/material/InputLabel";
+import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import axios from "axios";
+import styles from "./Signup.module.css";
+import { useState } from "react";
+
 const Signup = () => {
+  const [userData, setUserData] = useState({
+    id: "",
+    phoneNumber: "",
+    userName: "",
+    password: "",
+  });
+  const userdataChangeHandler = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+    console.log(userData);
+  };
+  const submitHandler = () => {
+    axios
+      .post("URL", userData)
+      .then(() => {
+        console.log("asd");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className={`${styles.signup_container}`}>
       <div
@@ -60,6 +82,9 @@ const Signup = () => {
               <Input
                 variant="outlined"
                 id="standard-adornment-amount"
+                name="phoneNumber"
+                value={userData.phoneNumber}
+                onChange={userdataChangeHandler}
                 startAdornment={
                   <InputAdornment position="start" variant="outlined">
                     +98{" "}
@@ -70,24 +95,31 @@ const Signup = () => {
             <TextField
               id="standard-basic"
               label="Username"
+              name="userName"
               variant="standard"
               className="mt-4"
               style={{ width: "270px" }}
+              value={userData.userName}
+              onChange={userdataChangeHandler}
             />
             <TextField
               id="standard-password-input"
               label="Password"
               type="password"
+              name="password"
               autoComplete="current-password"
               variant="standard"
               className="mt-4"
               style={{ width: "270px" }}
+              value={userData.password}
+              onChange={userdataChangeHandler}
             />
             <Button
               variant="contained"
               size="large"
               className="mt-5"
               style={{ width: "270px" }}
+              onClick={submitHandler}
             >
               Sign up
             </Button>

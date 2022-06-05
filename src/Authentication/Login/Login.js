@@ -1,9 +1,23 @@
-import { Link } from "react-router-dom";
-import styles from "./Login.module.css";
 import { Col, Row } from "reactstrap";
-import TextField from "@mui/material/TextField";
+
 import Button from "@mui/material/Button";
+import FormControl from "@mui/material/FormControl";
+import Input from "@mui/material/Input";
+import InputAdornment from "@mui/material/InputAdornment";
+import InputLabel from "@mui/material/InputLabel";
+import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import styles from "./Login.module.css";
+import { useState } from "react";
+
 const Login = () => {
+  const [login, setLogin] = useState({ id: "", phoneNumber: "", password: "" });
+  const userdataChangeHandler = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+  const loginHandler = () => {
+    console.log(login);
+  };
   return (
     <div className={`${styles.login_container}`}>
       <div
@@ -28,12 +42,7 @@ const Login = () => {
         </div>
       </div>
       <Row className="d-flex justify-content-center align-item-center">
-        <Col
-          sm="12"
-          md="6"
-          xl="3"
-          className={`${styles.login_card_container}`}
-        >
+        <Col sm="12" md="6" xl="3" className={`${styles.login_card_container}`}>
           <div className="mt-4 mx-2">
             <div>
               <p className={`${styles.login_text}`}>Login</p>
@@ -45,13 +54,27 @@ const Login = () => {
             </div>
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-            <TextField
-              id="standard-basic"
-              label="Username"
-              variant="standard"
-              className="mt-4"
-              style={{ width: "270px" }}
-            />
+            <FormControl variant="outlined" style={{ width: "270px" }}>
+              <InputLabel
+                style={{ width: "270px", marginLeft: "-12px" }}
+                htmlFor="standard-adornment-amount"
+                variant="outlined"
+              >
+                Phone Number
+              </InputLabel>
+              <Input
+                variant="outlined"
+                id="standard-adornment-amount"
+                name="phoneNumber"
+                value={login.phoneNumber}
+                onChange={userdataChangeHandler}
+                startAdornment={
+                  <InputAdornment position="start" variant="outlined">
+                    +98{" "}
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
             <TextField
               id="standard-password-input"
               label="Password"
@@ -59,6 +82,9 @@ const Login = () => {
               autoComplete="current-password"
               variant="standard"
               className="mt-4"
+              name="password"
+              value={login.password}
+              onChange={userdataChangeHandler}
               style={{ width: "270px" }}
             />
             <Button
@@ -66,6 +92,7 @@ const Login = () => {
               size="large"
               className="mt-5"
               style={{ width: "270px" }}
+              onClick={loginHandler}
             >
               Login
             </Button>

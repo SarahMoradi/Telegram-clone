@@ -31,7 +31,7 @@
 @media screen and (max-width: 515px) {
   .signup_card_container {
     border-radius: 0;
-    top: 90px;
+    top: 80px;
     width: 100%;
     height: 100vh;
   }
