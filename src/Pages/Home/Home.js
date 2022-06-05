@@ -1,9 +1,11 @@
-import { Row } from "reactstrap";
-import styles from "./Home.module.css";
 import ContactChatList from "./ContactChatList";
 import DisplayChatScreen from "./Chat/DisplayChatScreen";
+import { Row } from "reactstrap";
+import mainSocket from "../../Services/io-config";
+import styles from "./Home.module.css";
 
 const Home = () => {
+  console.log(mainSocket);
   return (
     <div className={`${styles.home_page_container}`}>
       <div className={`${styles.main_header}`}></div>

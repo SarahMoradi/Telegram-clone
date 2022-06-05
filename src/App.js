@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import {Provider} from 'react-redux'
 import { ToastContainer } from 'react-toastify';
 import routes from "./routes";
-import store from "./redux/store";
+import store from "./redux/reduxManagement";
 
 function App() {
   return (
@@ -23,5 +23,6 @@ function App() {
     </Provider>
   );
 }
+
 
 export default App;
