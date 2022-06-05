@@ -4,12 +4,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Route, Routes } from "react-router-dom";
 
+import {Provider} from 'react-redux'
 import { ToastContainer } from 'react-toastify';
 import routes from "./routes";
+import store from "./redux/store";
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
+      <div className="App">
       <Routes>
         {routes.map((route) => (
           <Route {...route} key={route.path} />
@@ -17,6 +20,7 @@ function App() {
       </Routes>
       <ToastContainer />
     </div>
+    </Provider>
   );
 }
 
