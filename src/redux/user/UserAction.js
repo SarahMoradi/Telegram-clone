@@ -33,7 +33,6 @@ export const fetchUsers = () => {
       .get('/user/all')
       .then((res) => {
         const users = res.data.data.users;
-        console.log(users, 'user from redux func');
         dispatch(fetchUsersSuccess(users));
       })
       .catch((error) => {

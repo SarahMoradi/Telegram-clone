@@ -12,7 +12,7 @@ const ContactChatList = () => {
   const userData = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const { users, error, loading } = userData;
-
+  const userId = localStorage.getItem('userId');
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
@@ -44,9 +44,11 @@ const ContactChatList = () => {
           users &&
           users.length && (
             <div>
-              {users.map((user) => (
-                <Contact key={user.id} user={user} />
-              ))}
+              {users
+                .filter((user) => user._id !== userId)
+                .map((user) => (
+                  <Contact key={user._id} user={user} />
+                ))}
             </div>
           )
         )}

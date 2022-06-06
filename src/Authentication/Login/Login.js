@@ -1,32 +1,33 @@
-import { Col, Row } from "reactstrap";
+import { Col, Row } from 'reactstrap';
 
-import Button from "@mui/material/Button";
-import FormControl from "@mui/material/FormControl";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import InputLabel from "@mui/material/InputLabel";
-import { Link } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import mainApi from "../../Services/axios-config";
-import styles from "./Login.module.css";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import { Link } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import mainApi from '../../Services/axios-config';
+import styles from './Login.module.css';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Login = () => {
   const history = useNavigate();
-  const [login, setLogin] = useState({ id: "", phoneNumber: "", password: "" });
+  const [login, setLogin] = useState({ id: '', phoneNumber: '', password: '' });
   const userdataChangeHandler = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
   const loginHandler = () => {
     mainApi
-      .post("/user/login", login)
+      .post('/user/login', login)
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.data.token);
-        toast.success("کاربر با موفقیت وارد شد");
-        history("/chat");
+        // console.log(res);
+        localStorage.setItem('userId', res.data.data.user);
+        localStorage.setItem('token', res.data.data.token);
+        toast.success('کاربر با موفقیت وارد شد');
+        history('/chat');
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -40,25 +41,25 @@ const Login = () => {
       >
         <div>
           <img
-            src="/icon.png"
-            alt="telegram-icon"
+            src='/icon.png'
+            alt='telegram-icon'
             width={28}
-            className="mx-2"
+            className='mx-2'
           />
           Telegram Web
         </div>
         <div>
           <Link
-            to="/authentication/sign-up"
+            to='/authentication/sign-up'
             className={`${styles.header_signup_link}`}
           >
             Sign up
           </Link>
         </div>
       </div>
-      <Row className="d-flex justify-content-center align-item-center">
-        <Col sm="12" md="6" xl="3" className={`${styles.login_card_container}`}>
-          <div className="mt-4 mx-2">
+      <Row className='d-flex justify-content-center align-item-center'>
+        <Col sm='12' md='6' xl='3' className={`${styles.login_card_container}`}>
+          <div className='mt-4 mx-2'>
             <div>
               <p className={`${styles.login_text}`}>Login</p>
             </div>
@@ -68,43 +69,43 @@ const Login = () => {
               </p>
             </div>
           </div>
-          <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-            <FormControl variant="outlined" style={{ width: "270px" }}>
+          <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
+            <FormControl variant='outlined' style={{ width: '270px' }}>
               <InputLabel
-                style={{ width: "270px", marginLeft: "-12px" }}
-                htmlFor="standard-adornment-amount"
-                variant="outlined"
+                style={{ width: '270px', marginLeft: '-12px' }}
+                htmlFor='standard-adornment-amount'
+                variant='outlined'
               >
                 Phone Number
               </InputLabel>
               <Input
-                variant="outlined"
-                id="standard-adornment-amount"
-                name="phoneNumber"
+                variant='outlined'
+                id='standard-adornment-amount'
+                name='phoneNumber'
                 value={login.phoneNumber}
                 onChange={userdataChangeHandler}
                 startAdornment={
-                  <InputAdornment position="start">+98 </InputAdornment>
+                  <InputAdornment position='start'>+98 </InputAdornment>
                 }
               />
             </FormControl>
             <TextField
-              id="standard-password-input"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="standard"
-              className="mt-4"
-              name="password"
+              id='standard-password-input'
+              label='Password'
+              type='password'
+              autoComplete='current-password'
+              variant='standard'
+              className='mt-4'
+              name='password'
               value={login.password}
               onChange={userdataChangeHandler}
-              style={{ width: "270px" }}
+              style={{ width: '270px' }}
             />
             <Button
-              variant="contained"
-              size="large"
-              className="mt-5"
-              style={{ width: "270px" }}
+              variant='contained'
+              size='large'
+              className='mt-5'
+              style={{ width: '270px' }}
               onClick={loginHandler}
             >
               Login
