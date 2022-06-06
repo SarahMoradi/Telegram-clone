@@ -1,7 +1,6 @@
 import styles from './Home.module.css';
-import { useSelector } from 'react-redux';
 
-const Contact = (props) => {
+const Contact = ({ user }) => {
   return (
     <>
       <div
@@ -16,7 +15,7 @@ const Contact = (props) => {
             className='mx-2'
           />
           <div className='mx-1'>
-            <div className={`${styles.contact_name}`}>h</div>
+            <div className={`${styles.contact_name}`}>{`${user.firstName} ${user.lastName}`}</div>
             <div className={`${styles.last_message}`}>
               where are you right now?
             </div>
