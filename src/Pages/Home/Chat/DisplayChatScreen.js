@@ -9,7 +9,6 @@ const DisplayChatScreen = () => {
   const dispatch = useDispatch(activeChat(selector));
   let firstName = localStorage.getItem("firstName");
   let lastName = localStorage.getItem("lastName");
-  console.log(selector);
   return (
     <Col sm="12" xl="9">
       <div

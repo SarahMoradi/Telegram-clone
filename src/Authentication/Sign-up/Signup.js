@@ -24,13 +24,11 @@ const Signup = () => {
   });
   const userdataChangeHandler = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
-    // console.log(userData);
   };
   const submitHandler = () => {
     mainApi
       .post("/user/register", userData)
       .then((res) => {
-        // console.log(res);
         toast.success("کاربر با موفقیت ثبت نام شد");
         history("/authentication/login");
       })

@@ -9,8 +9,6 @@ import styles from "./Home.module.css";
 import { useEffect, useState } from "react";
 
 const ContactChatList = () => {
-  const [openHumbergerMenu, setOpenHumbergerMenu] = useState(false);
-  console.log(openHumbergerMenu);
   const userData = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const { users, error, loading } = userData;
@@ -21,20 +19,15 @@ const ContactChatList = () => {
 
   return (
     <Col sm="12" xl="3" className="d-flex flex-column">
+
       <div className={`${styles.nav_bar_section}`}>
         {" "}
-        {openHumbergerMenu && (
-          <div className={`${styles.humberger_menu_display}`}>
-            dsfsdfsdfsdfsdf
-          </div>
-        )}
         <div
           className={`${styles.header_nav_bar} d-flex align-items-center justify-content-between px-2`}
         >
           <div
             className="d-flex align-items-center"
-            onClick={() => setOpenHumbergerMenu(!openHumbergerMenu)}
-          >
+            onClick={() => {}} >
             <GiHamburgerMenu
               color="white"
               className="mx-2 my-3 cursor-pointer"

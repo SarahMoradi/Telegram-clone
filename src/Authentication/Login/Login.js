@@ -23,7 +23,6 @@ const Login = () => {
     mainApi
       .post('/user/login', login)
       .then((res) => {
-        // console.log(res);
         localStorage.setItem('userId', res.data.data.user);
         localStorage.setItem('token', res.data.data.token);
         toast.success('کاربر با موفقیت وارد شد');

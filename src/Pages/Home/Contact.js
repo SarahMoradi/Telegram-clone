@@ -5,7 +5,6 @@ import styles from "./Home.module.css";
 
 const Contact = ({ user }) => {
   const [userActive, setUserActive] = useState({ user });
-  console.log(userActive);
   const firstName = userActive.user.firstName;
   const lastName = userActive.user.lastName;
   const selector = useSelector((state) => state.activeChat);

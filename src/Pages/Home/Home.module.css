@@ -96,4 +96,8 @@
 }
 .humberger_menu_display {
   position: absolute;
+  background-color: #fff;
+  width: 25%;
+  height: calc(100vh - 20px);
+  transition: all 0.9s;
 }
