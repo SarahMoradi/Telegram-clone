@@ -1,7 +1,11 @@
 import { MdMoreVert } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { Col } from "reactstrap";
 import styles from "../Home.module.css";
 const DisplayChatScreen = () => {
+  const selector = useSelector((state) => state.activeChat);
+  const dispatch = useDispatch();
+  console.log(selector);
   return (
     <Col sm="12" xl="9">
       <div
@@ -17,7 +21,9 @@ const DisplayChatScreen = () => {
             className="mx-2"
           />
           <div className="mx-1">
-            <div className={`${styles.chat_account_name}`}>Account</div>
+            <div
+              className={`${styles.chat_account_name}`}
+            >{`${selector.id.user.firstName} ${selector.id.user.lastName}`}</div>
             <div className={`${styles.account_last_seen}`}>
               last seen at 15:52 AM
             </div>
