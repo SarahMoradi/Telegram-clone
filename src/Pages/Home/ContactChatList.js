@@ -1,32 +1,43 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import { Col } from 'reactstrap';
-import Contact from './Contact';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { GrFormSearch } from 'react-icons/gr';
-import { fetchUsers } from '../../redux/user/UserAction';
-import styles from './Home.module.css';
-import { useEffect } from 'react';
+import { Col } from "reactstrap";
+import Contact from "./Contact";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrFormSearch } from "react-icons/gr";
+import { fetchUsers } from "../../redux/user/UserAction";
+import styles from "./Home.module.css";
+import { useEffect, useState } from "react";
 
 const ContactChatList = () => {
+  const [openHumbergerMenu, setOpenHumbergerMenu] = useState(false);
+  console.log(openHumbergerMenu);
   const userData = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const { users, error, loading } = userData;
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem("userId");
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
 
   return (
-    <Col sm='12' xl='3' className='d-flex flex-column'>
+    <Col sm="12" xl="3" className="d-flex flex-column">
       <div className={`${styles.nav_bar_section}`}>
+        {" "}
+        {openHumbergerMenu && (
+          <div className={`${styles.humberger_menu_display}`}>
+            dsfsdfsdfsdfsdf
+          </div>
+        )}
         <div
           className={`${styles.header_nav_bar} d-flex align-items-center justify-content-between px-2`}
         >
-          <div className='d-flex align-items-center'>
+          <div
+            className="d-flex align-items-center"
+            onClick={() => setOpenHumbergerMenu(!openHumbergerMenu)}
+          >
             <GiHamburgerMenu
-              color='white'
-              className='mx-2 my-3 cursor-pointer'
+              color="white"
+              className="mx-2 my-3 cursor-pointer"
               size={20}
             />
             <p className={`${styles.contact_name_logo} my-2`}>Telegram</p>

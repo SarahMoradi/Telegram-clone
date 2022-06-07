@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { MdMoreVert } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Col } from "reactstrap";
+import { activeChat } from "../../../redux/chatController/activeChatActions";
 import styles from "../Home.module.css";
 const DisplayChatScreen = () => {
   const selector = useSelector((state) => state.activeChat);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(activeChat(selector));
+  let firstName = localStorage.getItem("firstName");
+  let lastName = localStorage.getItem("lastName");
   console.log(selector);
   return (
     <Col sm="12" xl="9">
@@ -23,7 +27,7 @@ const DisplayChatScreen = () => {
           <div className="mx-1">
             <div
               className={`${styles.chat_account_name}`}
-            >{`${selector.id.user.firstName} ${selector.id.user.lastName}`}</div>
+            >{`${firstName} ${lastName}`}</div>
             <div className={`${styles.account_last_seen}`}>
               last seen at 15:52 AM
             </div>

@@ -94,3 +94,6 @@
 .chat_notication_shade span {
   color: #fff;
 }
+.humberger_menu_display {
+  position: absolute;
+}

@@ -5,6 +5,9 @@ import styles from "./Home.module.css";
 
 const Contact = ({ user }) => {
   const [userActive, setUserActive] = useState({ user });
+  console.log(userActive);
+  const firstName = userActive.user.firstName;
+  const lastName = userActive.user.lastName;
   const selector = useSelector((state) => state.activeChat);
   const dispatch = useDispatch();
 
@@ -12,7 +15,11 @@ const Contact = ({ user }) => {
     <>
       <div
         className={`${styles.contact_chats_holder} mx-1 d-flex justify-content-between`}
-        onClick={() => dispatch(activeChat(userActive))}
+        onClick={() => {
+          dispatch(activeChat(userActive));
+          localStorage.setItem("firstName", firstName);
+          localStorage.setItem("lastName", lastName);
+        }}
       >
         <div className="d-flex align-items-center">
           <img
