@@ -1,17 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Col } from 'reactstrap';
 import Contact from './Contact';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrFormSearch } from 'react-icons/gr';
-import mainApi from '../../Services/axios-config';
+import { fetchUsers } from '../../redux/user/UserAction';
 import styles from './Home.module.css';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 const ContactChatList = () => {
-  const state = useSelector((state) => {
-    console.log('state', state.data);
-    return state;
-  });
+  const userData = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const { users, error, loading } = userData;
+  const userId = localStorage.getItem('userId');
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
+
   return (
     <Col sm='12' xl='3' className='d-flex flex-column'>
       <div className={`${styles.nav_bar_section}`}>
@@ -30,9 +35,23 @@ const ContactChatList = () => {
             <GrFormSearch size={32} className={`${styles.search_icon}`} />
           </div>
         </div>
-        {!state.loading
-          ? 'wait'
-          : state.data.map((user) => <Contact user={user} />)}
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          userData &&
+          users &&
+          users.length && (
+            <div>
+              {users
+                .filter((user) => user._id !== userId)
+                .map((user) => (
+                  <Contact key={user._id} user={user} />
+                ))}
+            </div>
+          )
+        )}
       </div>
     </Col>
   );
