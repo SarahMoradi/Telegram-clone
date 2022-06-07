@@ -1,30 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { activeChat } from '../../redux/chatController/activeChatActions';
-import styles from './Home.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { activeChat } from "../../redux/chatController/activeChatActions";
+import styles from "./Home.module.css";
 
 const Contact = ({ user }) => {
-  const selector = useSelector((state) => state.activeChatReducer);
-  const dispatch = useDispatch(activeChat(user._id));
+  const [userActive, setUserActive] = useState({ user });
+  const selector = useSelector((state) => state.activeChat);
+  const dispatch = useDispatch();
 
-  const sendActiveChatHandler = () => {
-    dispatch(activeChat(user._id));
-  };
   return (
     <>
       <div
         className={`${styles.contact_chats_holder} mx-1 d-flex justify-content-between`}
-        onClick={sendActiveChatHandler}
+        onClick={() => dispatch(activeChat(userActive))}
       >
-        <div className='d-flex align-items-center'>
+        <div className="d-flex align-items-center">
           <img
-            src='/user.png'
-            alt='userImage'
+            src="/user.png"
+            alt="userImage"
             width={31}
             height={30}
-            className='mx-2'
+            className="mx-2"
           />
-          <div className='mx-1'>
+          <div className="mx-1">
             <div
               className={`${styles.contact_name}`}
             >{`${user.firstName} ${user.lastName}`}</div>
@@ -34,7 +32,7 @@ const Contact = ({ user }) => {
           </div>
         </div>
         <div className={`${styles.user_last_time_message}`}>
-          <span>{selector}</span>
+          <span>12:53 AM</span>
           <div
             className={`${styles.chat_notication_shade} d-flex justify-content-center align-items-center`}
           >

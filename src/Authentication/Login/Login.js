@@ -70,7 +70,7 @@ const Login = () => {
             </div>
           </div>
           <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
-            <FormControl variant='outlined' style={{ width: '270px' }}>
+            <FormControl variant='outlined' style={{ width: '270px' }} className='mt-5'>
               <InputLabel
                 style={{ width: '270px', marginLeft: '-12px' }}
                 htmlFor='standard-adornment-amount'
@@ -95,7 +95,7 @@ const Login = () => {
               type='password'
               autoComplete='current-password'
               variant='standard'
-              className='mt-4'
+              className='mt-4 mb-3'
               name='password'
               value={login.password}
               onChange={userdataChangeHandler}

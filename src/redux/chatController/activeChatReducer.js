@@ -7,7 +7,7 @@ const initialState = {
 const activeChatReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIVE_CHAT:
-      return { id: state.id };
+      return { id: action.payload};
     default:
       return state;
   }
