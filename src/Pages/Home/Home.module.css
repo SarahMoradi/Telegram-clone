@@ -103,10 +103,37 @@
 }
 .off_canvas_menu {
   background-color: #fff;
-  width: 25% !important;
+  width: 25%;
   margin-top: 72px;
   height: calc(100vh - 72px);
   position: relative;
+}
+@media screen and (max-width: 1199px) {
+  .off_canvas_menu {
+    background-color: #fff;
+    width: 50% !important;
+    margin-top: 72px;
+    height: calc(100vh - 72px);
+    position: relative;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .off_canvas_menu {
+    background-color: #fff;
+    width: 50% !important;
+    margin-top: 52px;
+    height: calc(100vh - 72px);
+    position: relative;
+  }
+}
+@media screen and (max-width: 505px) {
+  .off_canvas_menu {
+    background-color: #fff;
+    width: 70% !important;
+    margin-top: 52px;
+    height: calc(100vh - 72px);
+    position: relative;
+  }
 }
 
 .off_canvas_menu img {
