@@ -5,15 +5,11 @@ const mainSocket = io('ws://localhost:4000', {
 });
 
 mainSocket.on('connect', () => {
-  console.log(mainSocket.id);
+  console.log('connect', mainSocket.id);
 });
 
 mainSocket.on('disconnect', () => {
-  console.log(mainSocket.id);
-});
-
-mainSocket.on('message', (...data) => {
-  console.log(data);
+  console.log('disconnect', mainSocket.id);
 });
 
 export default mainSocket;

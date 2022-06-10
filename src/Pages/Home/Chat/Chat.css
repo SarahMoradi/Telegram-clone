@@ -1,0 +1,32 @@
+.display-chat-container {
+  height: 82% !important;
+  background-color: rgb(221, 221, 139);
+  overflow: auto;
+}
+
+.sender-message-styles p {
+  color: red;
+  border: 1px solid blue;
+  padding: 5px;
+  margin: 4px 1px;
+  justify-content: end;
+  width: fit-content;
+}
+.receiver-message-styles p {
+  color: green;
+  text-align: right !important;
+  border: 1px solid blue;
+  padding: 5px;
+  margin: 4px 1px;
+  justify-content: start;
+  width: fit-content;
+  margin-left: auto;
+}
+.sender-message-styles {
+  display: flex;
+  flex-direction: column;
+}
+.receiver-message-styles {
+  display: flex;
+  flex-direction: column;
+}

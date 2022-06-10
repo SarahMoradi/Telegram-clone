@@ -7,10 +7,8 @@ import { useSelector } from 'react-redux';
 
 const DisplayChatScreen = () => {
   const activeChat = useSelector((state) => state.activeChat);
-  // let firstName = localStorage.getItem('firstName');
-  // let lastName = localStorage.getItem('lastName');
   return (
-    <Col sm='12' xl='9'>
+    <Col sm='12' xl='9' className={`${styles.chat_bar}`}>
       {!activeChat.id ? (
         <div
           className={`${styles.chat_bar_section} d-flex justify-content-between px-4`}
@@ -42,7 +40,9 @@ const DisplayChatScreen = () => {
               <MdMoreVert color='white' size={25} />
             </div>
           </div>
-          <Chats />
+          <div className='px-4 pt-3 display-chat-container'>
+            <Chats />
+          </div>
           <SendMessage />
         </>
       )}

@@ -1,6 +1,7 @@
 import { Button, Input } from 'reactstrap';
 
 import mainSocket from '../../../Services/io-config';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 const SendMessage = () => {
@@ -8,12 +9,12 @@ const SendMessage = () => {
   const messageInputChangeHandler = (e) => {
     setCurrentMessage(e.target.value);
   };
-  const activeChatId = localStorage.getItem('contactID');
+  const activeContact = useSelector((state) => state.activeChat);
 
   const sendMessageClickHandler = () => {
     mainSocket.emit('message', {
       message: currentMessage,
-      receiverId: activeChatId,
+      receiverId: activeContact.id.user._id,
     });
     setCurrentMessage('');
   };

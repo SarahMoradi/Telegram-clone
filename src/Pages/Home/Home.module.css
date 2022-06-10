@@ -28,6 +28,9 @@
   color: #fff;
   font-weight: bold !important;
 }
+.chat_bar {
+  overflow: hidden;
+}
 .chat_bar_section {
   height: 52px;
   background-color: #6495ed;
