@@ -19,7 +19,11 @@ const SendMessage = () => {
   };
   return (
     <div className='d-flex'>
-      <Input onChange={messageInputChangeHandler} placeholder='Write Message' />
+      <Input
+        value={currentMessage}
+        onChange={messageInputChangeHandler}
+        placeholder='Write Message'
+      />
       <Button
         disabled={!currentMessage}
         onClick={sendMessageClickHandler}
