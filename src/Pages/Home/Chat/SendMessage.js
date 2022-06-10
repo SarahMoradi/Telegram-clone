@@ -9,7 +9,7 @@ const SendMessage = () => {
     setCurrentMessage(e.target.value);
   };
   const activeChatId = localStorage.getItem('contactID');
-  console.log(activeChatId);
+
   const sendMessageClickHandler = () => {
     mainSocket.emit('message', {
       message: currentMessage,

@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 const Contact = ({ user }) => {
   const [userActive, setUserActive] = useState({ user });
-  const firstName = userActive.user.firstName;
-  const lastName = userActive.user.lastName;
-  const contactId = userActive.user._id;
-  const selector = useSelector((state) => state.activeChat);
   const dispatch = useDispatch();
+  // const firstName = userActive.user.firstName;
+  // const lastName = userActive.user.lastName;
+  // const contactId = userActive.user._id;
+  // const selector = useSelector((state) => state.activeChat);
 
   return (
     <>
@@ -18,9 +18,9 @@ const Contact = ({ user }) => {
         className={`${styles.contact_chats_holder} mx-1 d-flex justify-content-between`}
         onClick={() => {
           dispatch(activeChat(userActive));
-          localStorage.setItem('firstName', firstName);
-          localStorage.setItem('lastName', lastName);
-          localStorage.setItem('contactID', contactId);
+          // localStorage.setItem('firstName', firstName);
+          // localStorage.setItem('lastName', lastName);
+          // localStorage.setItem('contactID', contactId);
         }}
       >
         <div className='d-flex align-items-center'>
