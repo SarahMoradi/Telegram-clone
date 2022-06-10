@@ -1,9 +1,13 @@
-import { useEffect } from "react";
-import { MdMoreVert } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+
+import Chats from "./Chats";
 import { Col } from "reactstrap";
+import { MdMoreVert } from "react-icons/md";
+import SendMessage from "./SendMessage";
 import { activeChat } from "../../../redux/chatController/activeChatActions";
 import styles from "../Home.module.css";
+import { useEffect } from "react";
+
 const DisplayChatScreen = () => {
   const selector = useSelector((state) => state.activeChat);
   const dispatch = useDispatch(activeChat(selector));
@@ -36,7 +40,10 @@ const DisplayChatScreen = () => {
           <MdMoreVert color="white" size={25} />
         </div>
       </div>
+      <Chats />
+      <SendMessage />
     </Col>
+    
   );
 };
 export default DisplayChatScreen;
