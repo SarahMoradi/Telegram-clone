@@ -7,8 +7,8 @@ import styles from "./Home.module.css";
 const Home = () => {
   return (
     <div className={`${styles.home_page_container}`}>
-      <div className={`${styles.main_header}`}></div>
-      <Row sm="12" className="g-0">
+      {/* height: 100vh && max-height: 100vh && scroll :hidden */}
+      <Row sm="12" className="g-0"> 
         <ContactChatList />
         <DisplayChatScreen />
       </Row>
