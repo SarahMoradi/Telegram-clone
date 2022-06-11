@@ -1,6 +1,7 @@
 .header-chat-bar {
   width: 100% !important;
 }
+
 .chat-bar-details-contanier {
   height: 50px;
   background-color: cornflowerblue;
@@ -20,13 +21,13 @@
   color: #fff;
   margin-top: -5px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 767px) {
   .chat-bar-container {
     position: absolute;
     top: 0;
   }
   .display-chat-lists {
-    background-image: url('/public/background.jpg');
+    background-image: url("/public/background.jpg");
     object-fit: cover;
     background-attachment: fixed;
     height: calc(100vh - 50px);
@@ -41,4 +42,46 @@
   margin-top: 10px;
   font-weight: bold;
   display: none;
+}
+.no-message-in-chat-container p {
+  z-index: 10;
+  margin-top: 100px;
+}
+.type-input {
+  position: absolute;
+  bottom: 0 !important;
+  width: calc(100% - 25%);
+}
+.type-input input {
+  border-radius: 20px 0 0 20px !important;
+  border: none !important;
+  margin: 0 0 10px 7px;
+}
+.type-input input:focus {
+  border: none !important;
+  box-shadow: none;
+}
+.type-input span {
+  border-radius: 0 20px 20px 0 !important;
+  background-color: #fff;
+  border: none;
+  color: cornflowerblue;
+  margin: 0 7px 10px 0;
+}
+.type-input input::placeholder {
+  font-size: 13px !important;
+}
+@media screen and (max-width: 993px) {
+  .type-input {
+    position: absolute;
+    bottom: 0 !important;
+    width: calc(100% - 33.3%);
+  }
+}
+@media screen and (max-width: 764px) {
+  .type-input {
+    position: absolute;
+    bottom: 0 !important;
+    width: 100% !important;
+  }
 }
