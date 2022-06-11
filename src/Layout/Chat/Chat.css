@@ -27,9 +27,10 @@
     top: 0;
   }
   .display-chat-lists {
-    background-image: url("/public/background.jpg");
+    background-image: url('/public/background.jpg');
     object-fit: cover;
     background-attachment: fixed;
+    width: 100%;
     height: calc(100vh - 50px);
   }
   .back-arrow-function {
@@ -69,7 +70,7 @@
   margin: 0 7px 10px 0;
 }
 .type-input input::placeholder {
-  font-size: 13px !important;
+  font-size: 17px !important;
 }
 @media screen and (max-width: 993px) {
   .type-input {
@@ -78,7 +79,7 @@
     width: calc(100% - 33.3%);
   }
 }
-@media screen and (max-width: 764px) {
+@media screen and (max-width: 760px) {
   .type-input {
     position: absolute;
     bottom: 0 !important;
@@ -86,6 +87,9 @@
   }
 }
 .chat-list-contaier {
-  background-color: crimson;
-  height: calc(100vh - 110px);
+  border: 1px solid #000;
+  height: calc(100vh - 129px);
+}
+.cursor-pointer {
+  cursor: pointer !important;
 }

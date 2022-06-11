@@ -1,7 +1,10 @@
-import { useSelector } from "react-redux";
-import { InputGroup, Input, InputGroupText } from "reactstrap";
 import "./Chat.css";
+
+import { Input, InputGroup, InputGroupText } from "reactstrap";
+
 import { IoSendSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
+
 const ChatTypeInput = () => {
   const activeChat = useSelector((state) => state.activeChat);
 
@@ -12,7 +15,7 @@ const ChatTypeInput = () => {
           <InputGroup>
             <Input placeholder="Write message ..." />
             <InputGroupText onClick={() => console.log("send")}>
-              <IoSendSharp size={20} />
+              <IoSendSharp size={28} className='cursor-pointer' />
             </InputGroupText>
           </InputGroup>
         </div>
