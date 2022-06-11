@@ -6,7 +6,6 @@
 }
 
 .sender-message-styles p {
-  color: red;
   background-color: #fff;
   color: black;
   padding: 8px 10px;
@@ -18,7 +17,6 @@
   width: fit-content;
 }
 .receiver-message-styles p {
-  color: green;
   text-align: right !important;
   background-color: #fff;
   color: black;
@@ -29,6 +27,7 @@
   margin: 4px 1px;
   justify-content: start;
   width: fit-content;
+  max-width: 270px;
   margin-left: auto;
 }
 .sender-message-styles {

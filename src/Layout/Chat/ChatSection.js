@@ -1,21 +1,18 @@
 import './Chat.css';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 import { BsArrowLeftShort } from 'react-icons/bs';
 import ChatList from './ChatList';
-import ChatTypeInput from './ChatTypeInput';
 import { Col } from 'reactstrap';
 import { MdMoreVert } from 'react-icons/md';
+import SendMessage from './ChatList';
+import { useSelector } from 'react-redux';
 
 const ChatSection = () => {
   const activeChat = useSelector((state) => state.activeChat);
   return (
     <Col sm='12' xl='9' className='chat-bar-container w-100'>
       {!activeChat.id ? (
-        <div className='header-chat-bar d-flex justify-content-between px-4'>
-          {/* <p className="no-message-in-chat-screen">No message is sent here yet ...</p> */}
-        </div>
+        <div className='header-chat-bar d-flex justify-content-between px-4'></div>
       ) : (
         <>
           <div className='chat-bar-details-contanier d-flex justify-content-between px-2'>

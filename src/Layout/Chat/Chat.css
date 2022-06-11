@@ -32,6 +32,7 @@
     background-attachment: fixed;
     width: 100%;
     height: calc(100vh - 50px);
+    overflow: hidden;
   }
   .back-arrow-function {
     margin-top: 10px;
@@ -87,8 +88,9 @@
   }
 }
 .chat-list-contaier {
-  border: 1px solid #000;
   height: calc(100vh - 129px);
+  overflow: auto;
+  padding: 2px 15px;
 }
 .cursor-pointer {
   cursor: pointer !important;

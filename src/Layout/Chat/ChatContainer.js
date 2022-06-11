@@ -1,11 +1,11 @@
 import ChatSection from "./ChatSection";
-import ChatTypeInput from "./ChatTypeInput";
+import SendMessage from "./SendMessage";
 
 const ChatContainer = () => {
   return (
     <div className="chat-screen-container">
       <ChatSection />
-      <ChatTypeInput />
+      <SendMessage />
     </div>
   );
 };
