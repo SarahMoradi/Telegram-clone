@@ -1,0 +1,42 @@
+.header-chat-bar {
+  width: 100% !important;
+}
+.chat-bar-details-contanier {
+  height: 50px;
+  background-color: cornflowerblue;
+}
+.chat_bar_user-info_container img {
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.user_account_name {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.account_last_seen {
+  font-size: 13px;
+  color: #fff;
+  margin-top: -5px;
+}
+@media screen and (max-width: 769px) {
+  .chat-bar-container {
+    position: absolute;
+    top: 0;
+  }
+  .display-chat-lists {
+    background-color: #fff;
+    height: calc(100vh - 50px);
+  }
+  .back-arrow-function {
+    margin-top: 10px;
+    font-weight: bold;
+    display: block !important;
+  }
+}
+.back-arrow-function {
+  margin-top: 10px;
+  font-weight: bold;
+  display: none;
+}

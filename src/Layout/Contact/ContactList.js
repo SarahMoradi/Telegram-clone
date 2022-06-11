@@ -32,14 +32,14 @@ const ContactList = () => {
           {!state ? (
             <GiHamburgerMenu
               color="white"
-              className="mx-2 cursor-pointer"
+              className="mx-3 cursor-pointer"
               size={20}
               onClick={handleClick}
             />
           ) : (
             <MdOutlineClose
               color="white"
-              className="mx-2 cursor-pointer"
+              className="mx-3 cursor-pointer"
               size={20}
               onClick={handleClick}
             />

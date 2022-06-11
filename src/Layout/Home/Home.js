@@ -3,6 +3,7 @@
 import { Row, Col } from "reactstrap";
 import ContactChatList from "../../Pages/Home/ContactChatList";
 import mainSocket from "../../Services/io-config";
+import ChatContainer from "../Chat/ChatContainer";
 import ContactList from "../Contact/ContactList";
 import "./Home.css";
 
@@ -15,7 +16,7 @@ const HomePage = () => {
           <ContactList />
         </Col>
         <Col md="8" lg="9">
-          .
+          <ChatContainer />
         </Col>
       </Row>
     </>
