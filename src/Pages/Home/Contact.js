@@ -1,52 +1,39 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { activeChat } from '../../redux/chatController/activeChatActions';
-import styles from './Home.module.css';
-import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { activeChat } from "../../redux/chatController/activeChatActions";
+import styles from "./Home.module.css";
+import { useState, useEffect } from "react";
 
 const Contact = ({ user }) => {
   const [userActive, setUserActive] = useState({ user });
   const dispatch = useDispatch();
-  // const firstName = userActive.user.firstName;
-  // const lastName = userActive.user.lastName;
-  // const contactId = userActive.user._id;
-  // const selector = useSelector((state) => state.activeChat);
 
   return (
     <>
       <div
-        className={`${styles.contact_chats_holder} mx-1 d-flex justify-content-between`}
+        className={`${styles.contact_chats_holder} d-flex justify-content-between`}
         onClick={() => {
           dispatch(activeChat(userActive));
-          // localStorage.setItem('firstName', firstName);
-          // localStorage.setItem('lastName', lastName);
-          // localStorage.setItem('contactID', contactId);
         }}
       >
-        <div className='d-flex align-items-center'>
+        <div className="d-flex align-items-center">
           <img
-            src='/user.png'
-            alt='userImage'
+            src="/user.png"
+            alt="userImage"
             width={31}
             height={30}
-            className='mx-2'
+            className="mx-2"
           />
-          <div className='mx-1'>
+          <div className="mx-1">
             <div
               className={`${styles.contact_name}`}
             >{`${user.firstName} ${user.lastName}`}</div>
             <div className={`${styles.last_message}`}>
-              where are you right now?
+              <span>Hello</span>
             </div>
           </div>
         </div>
-        <div className={`${styles.user_last_time_message}`}>
-          <span>12:53 AM</span>
-          <div
-            className={`${styles.chat_notication_shade} d-flex justify-content-center align-items-center`}
-          >
-            <span>1</span>
-          </div>
+        <div className={`${styles.user_last_time_message} pt-2`}>
+          <span style={{ fontSize: "11px" }}>12:53 AM</span>
         </div>
       </div>
     </>

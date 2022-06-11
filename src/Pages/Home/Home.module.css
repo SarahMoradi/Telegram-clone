@@ -108,7 +108,7 @@
 .off_canvas_menu {
   background-color: #fff;
   width: 25% !important;
-  margin-top: 72px;
+  margin-top: 52px;
   height: calc(100vh - 72px);
   position: relative;
 }
@@ -145,14 +145,14 @@
   height: 200px;
   padding-top: 2px;
 }
-.off_canvas_header p:nth-child(3) {
+.off_canvas_header p:nth-child(2) {
   color: #fff;
   position: absolute;
   top: 167px;
   left: 65px;
   font-size: 12px;
 }
-.off_canvas_header p:nth-child(2) {
+.off_canvas_header p:nth-child(1) {
   color: #fff;
   position: absolute;
   top: 147px;
