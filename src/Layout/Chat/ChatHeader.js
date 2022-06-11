@@ -39,7 +39,7 @@ const ChatHeader = () => {
               <MdMoreVert color="white" size={25} />
             </div>
           </div>
-          <div className="px-4 pt-3 display-chat-lists">{/* <Chats /> */}</div>
+          <div className="px-4 pt-3 display-chat-lists"></div>
           {/* <SendMessage /> */}
         </>
       )}

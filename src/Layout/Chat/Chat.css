@@ -85,3 +85,7 @@
     width: 100% !important;
   }
 }
+.chat-list-contaier {
+  background-color: crimson;
+  height: calc(100vh - 110px);
+}
