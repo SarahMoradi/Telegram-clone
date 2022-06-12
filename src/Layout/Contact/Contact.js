@@ -13,7 +13,7 @@ const Contact = ({ user }) => {
         dispatch(activeChat(userActive));
       }}
     >
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center ">
         <img
           src="/user.png"
           alt="userImage"

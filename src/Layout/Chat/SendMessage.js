@@ -34,7 +34,7 @@ const SendMessage = () => {
               disabled={!currentMessage}
               onClick={sendMessageClickHandler}
             >
-              <IoSendSharp size={28} className='cursor-pointer' />
+              <IoSendSharp size={25} className='cursor-pointer' />
             </InputGroupText>
           </InputGroup>
         </div>

@@ -26,7 +26,7 @@ const Login = () => {
         localStorage.setItem('userId', res.data.data.user);
         localStorage.setItem('token', res.data.data.token);
         toast.success('کاربر با موفقیت وارد شد');
-        history('/chat');
+        history('/home-page');
       })
       .catch((err) => {
         console.log(err.response.data);
