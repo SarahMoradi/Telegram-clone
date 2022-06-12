@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { activeChat } from "../../redux/chatController/activeChatActions";
 import "./Contact.css";
+import mainSocket from "../../Services/io-config";
+import mainApi from "../../Services/axios-config";
 import { useState, useEffect } from "react";
 
-const Contact = ({ user }) => {
+const Contact = ({ user, lastUserMessage }) => {
+  console.log(lastUserMessage)
   const [userActive, setUserActive] = useState({ user });
+  // const activeChatId = useSelector((state) => state.activeChat);
   const dispatch = useDispatch();
+
   return (
     <div
       className="contact-list d-flex justify-content-between "
@@ -23,9 +28,7 @@ const Contact = ({ user }) => {
         />
         <div className="mx-1">
           <div className="contact-name">{`${user.firstName} ${user.lastName}`}</div>
-          <div className="contact-last-message">
-            <span>Hello</span>
-          </div>
+          <div className="contact-last-message"></div>
         </div>
       </div>
       <div className="contact-last-seen pt-2">

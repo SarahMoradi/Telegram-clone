@@ -1,13 +1,12 @@
 import "./Contact.css";
 
-import { OffCanvas, OffCanvasBody, OffCanvasMenu } from "react-offcanvas";
+import { OffCanvas, OffCanvasMenu } from "react-offcanvas";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { Col } from "reactstrap";
 import Contact from "./Contact";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrFormSearch } from "react-icons/gr";
+
 import { MdOutlineClose } from "react-icons/md";
 import { fetchUsers } from "../../redux/user/UserAction";
 
@@ -25,6 +24,7 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
+
 
   return (
     <div>
@@ -89,9 +89,9 @@ const ContactList = () => {
             <div>
               {users
                 .filter((user) => user._id !== userId)
-                .map((user) => (
-                  <Contact key={user._id} user={user} />
-                ))}
+                .map((user) => {
+                  return <Contact key={user._id} user={user} />;
+                })}
             </div>
           )
         )}
