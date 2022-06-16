@@ -7,7 +7,9 @@ import { useState } from 'react';
 function getFullTimeLastSeen(time) {
   let hour = time.getHours();
   const minute = time.getMinutes();
-  const fullTimeLastSeen = `${hour}:${minute} ${hour >= 12 ? 'PM' : 'AM'}`;
+  const fullTimeLastSeen = `${hour}:${minute < 10 ? '0' + minute : minute} ${
+    hour >= 12 ? 'PM' : 'AM'
+  }`;
 
   return fullTimeLastSeen;
 }

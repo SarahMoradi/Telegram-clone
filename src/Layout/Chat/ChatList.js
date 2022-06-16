@@ -11,13 +11,16 @@ const receiveMessage = (cb, messages) => {
     return cb([...messages, newMessage]);
   });
 };
+
 const ChatList = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const activeChatId = useSelector((state) => state.activeChat);
 
+
   receiveMessage(setMessages, messages);
+
 
   useEffect(() => {
     // console.log(activeChatId.id?.user?._id, 'chats');
@@ -40,27 +43,26 @@ const ChatList = () => {
     <div className='px-2 pt-3 display-chat-lists'>
       {activeChatId.id && (
         <div className='chat-list-contaier'>
-            {loading ? (
-              <>Loading</>
-            ) : error ? (
-              <>Error</>
-            ) : (
-              <div>
-                {messages.map((message) => (
-                  <div
-                    className={
-                      message.sender === activeChatId.id.user._id
-                        ? 'sender-message-styles'
-                        : 'receiver-message-styles'
-                    }
-                    key={message._id}
-                  >
-                    <p>{message.message}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-    
+          {loading ? (
+            <>Loading</>
+          ) : error ? (
+            <>Error</>
+          ) : (
+            <div>
+              {messages.map((message) => (
+                <div
+                  className={
+                    message.sender === activeChatId.id.user._id
+                      ? 'sender-message-styles'
+                      : 'receiver-message-styles'
+                  }
+                  key={message._id}
+                >
+                  <p>{message.message}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

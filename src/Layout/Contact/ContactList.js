@@ -1,65 +1,70 @@
-import "./Contact.css";
+import './Contact.css';
 
-import { OffCanvas, OffCanvasMenu } from "react-offcanvas";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { OffCanvas, OffCanvasMenu } from 'react-offcanvas';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-import Contact from "./Contact";
-import { GiHamburgerMenu } from "react-icons/gi";
+import Contact from './Contact';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdOutlineClose } from 'react-icons/md';
+import { fetchUsers } from '../../redux/user/UserAction';
 
-import { MdOutlineClose } from "react-icons/md";
-import { fetchUsers } from "../../redux/user/UserAction";
+// import mainSocket from '../../Services/io-config';
 
+// const receiveMessage = (cb) => {
+//   mainSocket.on('message', (newMessage) => {
+//     return cb(newMessage);
+//   });
+// };
 const ContactList = () => {
   const userData = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const { users, error, loading } = userData;
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem('userId');
   const [state, setState] = useState(false);
 
   const handleClick = () => {
     setState(!state);
   };
-
+  // receiveMessage(setMessages, messages)
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
 
-
   return (
     <div>
-      <div className="contact-list-header d-flex">
-        <div className="d-flex align-items-center">
+      <div className='contact-list-header d-flex'>
+        <div className='d-flex align-items-center'>
           {!state ? (
             <GiHamburgerMenu
-              color="white"
-              className="mx-3 cursor-pointer"
+              color='white'
+              className='mx-3 cursor-pointer'
               size={20}
               onClick={handleClick}
             />
           ) : (
             <MdOutlineClose
-              color="white"
-              className="mx-3 cursor-pointer"
+              color='white'
+              className='mx-3 cursor-pointer'
               size={20}
               onClick={handleClick}
             />
           )}
         </div>
-        <p className="contact-logo-name pt-2 mt-1 mx-1">
-          {!state ? "Telegram" : "Menu"}
+        <p className='contact-logo-name pt-2 mt-1 mx-1'>
+          {!state ? 'Telegram' : 'Menu'}
         </p>
         <OffCanvas
           width={300}
           transitionDuration={300}
           isMenuOpened={state}
-          position={"left"}
-          effect={"overlay"}
+          position={'left'}
+          effect={'overlay'}
         >
-          <OffCanvasMenu className="off-canvas-menu">
-            <img src="/background.jpg" alt="default" />
-            <div className="off-canvas-header">
-              <img src="/user.png" alt="defaultUser" />
+          <OffCanvasMenu className='off-canvas-menu'>
+            <img src='/background.jpg' alt='default' />
+            <div className='off-canvas-header'>
+              <img src='/user.png' alt='defaultUser' />
 
               {users
                 .filter((user) => user._id === userId)
@@ -77,7 +82,7 @@ const ContactList = () => {
           </OffCanvasMenu>
         </OffCanvas>
       </div>
-      <div className="contact-chat-container">
+      <div className='contact-chat-container'>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
