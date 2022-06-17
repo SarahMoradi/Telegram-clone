@@ -60,7 +60,7 @@
   height: 50px;
   padding: 30px 0;
   cursor: pointer !important;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  border-bottom: 1px solid rgb(197, 197, 197);
 }
 
 .contact-list img {
@@ -83,4 +83,8 @@
   color: rgb(80, 78, 78);
   margin-right: 20px;
   margin-top: -25px;
+}
+.contact-last-message-time{
+  font-size: 13px;
+  color: gray;
 }

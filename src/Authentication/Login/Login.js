@@ -69,7 +69,11 @@ const Login = () => {
             </div>
           </div>
           <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
-            <FormControl variant='outlined' style={{ width: '270px' }} className='mt-5'>
+            <FormControl
+              variant='outlined'
+              style={{ width: '270px' }}
+              className='mt-5'
+            >
               <InputLabel
                 style={{ width: '270px', marginLeft: '-12px' }}
                 htmlFor='standard-adornment-amount'

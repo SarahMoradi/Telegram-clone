@@ -11,6 +11,14 @@ const receiveMessage = (cb, messages) => {
     return cb([...messages, newMessage]);
   });
 };
+function getFullTimeLastSeen(time) {
+  let hour = time.getHours();
+  const minute = time.getMinutes();
+
+  const fullTimeLastSeen = `${hour}:${minute < 10 ? '0' + minute : minute}`;
+
+  return fullTimeLastSeen;
+}
 
 const ChatList = () => {
   const [error, setError] = useState(false);
@@ -18,9 +26,7 @@ const ChatList = () => {
   const [messages, setMessages] = useState([]);
   const activeChatId = useSelector((state) => state.activeChat);
 
-
   receiveMessage(setMessages, messages);
-
 
   useEffect(() => {
     // console.log(activeChatId.id?.user?._id, 'chats');
@@ -58,7 +64,12 @@ const ChatList = () => {
                   }
                   key={message._id}
                 >
-                  <p>{message.message}</p>
+                  <p className='d-flex flex-column text-message-style'>
+                    {message.message}
+                    <span className='sent-message-time'>
+                      {getFullTimeLastSeen(new Date(message.createdAt))}
+                    </span>
+                  </p>
                 </div>
               ))}
             </div>

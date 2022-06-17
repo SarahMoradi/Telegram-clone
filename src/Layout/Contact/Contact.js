@@ -7,18 +7,19 @@ import { useState } from 'react';
 function getFullTimeLastSeen(time) {
   let hour = time.getHours();
   const minute = time.getMinutes();
-  const fullTimeLastSeen = `${hour}:${minute < 10 ? '0' + minute : minute} ${
-    hour >= 12 ? 'PM' : 'AM'
-  }`;
+  const newHour = hour >= 12 ? +hour - 12 : hour;
+  const fullTimeLastSeen = `${newHour < 10 ? '0' + newHour : newHour}:${
+    minute < 10 ? '0' + minute : minute
+  } ${hour >= 12 ? 'PM' : 'AM'}`;
 
   return fullTimeLastSeen;
 }
 
-const Contact = ({ user }) => {
+const Contact = ({ user, lastMessage }) => {
   console.log(user.lastMessage);
   const [userActive, setUserActive] = useState({ user });
   const dispatch = useDispatch();
-  const hasLastMessage = !!user.lastMessage;
+  const hasLastMessage = !!user.lastMessage || !!lastMessage;
 
   return (
     <div
@@ -39,15 +40,21 @@ const Contact = ({ user }) => {
           <div className='contact-name'>{`${user.firstName} ${user.lastName}`}</div>
           <div className='contact-last-message'>
             {hasLastMessage
-              ? user.lastMessage.message
+              ? lastMessage
+                ? lastMessage.message
+                : user.lastMessage.message
               : 'start conversation ...'}
           </div>
         </div>
       </div>
       <div className='contact-last-seen pt-2'>
         {hasLastMessage && (
-          <span style={{ fontSize: '11px' }}>
-            {getFullTimeLastSeen(new Date(user.lastMessage.createdAt))}
+          <span className='contact-last-message-time'>
+            {getFullTimeLastSeen(
+              new Date(
+                lastMessage ? lastMessage.createdAt : user.lastMessage.createdAt
+              )
+            )}
           </span>
         )}
       </div>

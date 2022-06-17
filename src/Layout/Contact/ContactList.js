@@ -8,21 +8,31 @@ import Contact from './Contact';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineClose } from 'react-icons/md';
 import { fetchUsers } from '../../redux/user/UserAction';
+import mainSocket from '../../Services/io-config';
+import { useNavigate } from 'react-router-dom';
 
-// import mainSocket from '../../Services/io-config';
+const userId = localStorage.getItem('userId');
 
-// const receiveMessage = (cb) => {
-//   mainSocket.on('message', (newMessage) => {
-//     return cb(newMessage);
-//   });
-// };
+const receiveMessage = (cb, messages) => {
+  mainSocket.on('message', (newMessage) => {
+    const id =
+      newMessage.sender === userId ? newMessage.receiver : newMessage.sender;
+    return cb({ ...messages, ...{ [id]: newMessage } });
+  });
+};
 const ContactList = () => {
   const userData = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const { users, error, loading } = userData;
-  const userId = localStorage.getItem('userId');
   const [state, setState] = useState(false);
-
+  const [usersLastMessage, setUsersLastMessage] = useState({});
+  const navigate = useNavigate();
+  receiveMessage(setUsersLastMessage, usersLastMessage);
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    navigate('/authentication/login');
+  };
   const handleClick = () => {
     setState(!state);
   };
@@ -75,6 +85,9 @@ const ContactList = () => {
                         {user.firstName} {user.lastName}
                       </p>
                       <p>+98 {user.phoneNumber}</p>
+                      <div>
+                        <span onClick={logoutHandler}>Log out</span>
+                      </div>
                     </div>
                   );
                 })}
@@ -95,7 +108,13 @@ const ContactList = () => {
               {users
                 .filter((user) => user._id !== userId)
                 .map((user) => {
-                  return <Contact key={user._id} user={user} />;
+                  return (
+                    <Contact
+                      key={user._id}
+                      user={user}
+                      lastMessage={usersLastMessage[user._id]}
+                    />
+                  );
                 })}
             </div>
           )
