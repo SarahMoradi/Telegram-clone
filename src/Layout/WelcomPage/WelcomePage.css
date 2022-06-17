@@ -1,0 +1,47 @@
+.welcome-page-footer-section {
+  width: 100vw;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+.welcome-page-footer-section div {
+  margin-top: -20px;
+}
+.centered-app-details {
+  margin: 150px auto !important;
+}
+.description-text {
+  width: 450px;
+  margin-top: 20px !important;
+}
+.welcome-page-title {
+  text-shadow: 1px 3px #fff;
+}
+.about-us-description {
+  color: rgb(66, 119, 218);
+  font-weight: bold !important;
+  text-shadow: 1px 1px #fff;
+}
+@media screen and (max-width: 898px) {
+  .centered-app-details {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .centered-app-details {
+    margin: 30px auto !important;
+  }
+  .centered-app-details img {
+    width: 80px;
+  }
+  .description-text {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 547px) {
+  .description-text {
+    width: 350px;
+  }
+  .welcome-page-footer-section div{
+      margin-top: -10px;
+  }
+}
