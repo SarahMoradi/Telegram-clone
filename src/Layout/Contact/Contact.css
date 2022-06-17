@@ -74,9 +74,8 @@
   font-weight: bold;
 }
 .contact-last-message {
-  font-size: 13px;
+  font-size: 11.5px;
   color: gray;
-  margin-top: -3px;
 }
 .contact-last-seen {
   font-size: 13px;
@@ -90,14 +89,36 @@
 }
 .option-list-in-offcanvas {
   font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
-  background-color: cornflowerblue;
+  background-color: rgb(207, 216, 233);
   padding: 10px;
-  color: #fff;
   border-radius: 10px;
 }
-.icons-in-options-list {
+.option-list-in-offcanvas:hover {
+  background-color: cornflowerblue;
   color: #fff;
+  transition: all 0.5s;
+}
+.icons-in-options-list {
   margin: 5px 20px 5px 25px;
   cursor: pointer;
+}
+.icons-in-options-list:hover {
+  color: #fff;
+  transition: all 0.5s;
+}
+.offcanvas-info-details {
+  position: absolute;
+  bottom: 10px !important;
+  left: 20px;
+}
+.offcanvas-info-details :first-child {
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+}
+.offcanvas-info-details :last-child {
+  font-size: 12px;
+  color: gray;
 }

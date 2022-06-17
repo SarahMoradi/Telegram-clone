@@ -2,6 +2,7 @@ import './Chat.css';
 
 import { useEffect, useState } from 'react';
 
+import { RiCheckDoubleLine } from 'react-icons/ri';
 import mainApi from '../../Services/axios-config';
 import mainSocket from '../../Services/io-config';
 import { useSelector } from 'react-redux';
@@ -65,9 +66,14 @@ const ChatList = () => {
                   key={message._id}
                 >
                   <p className='d-flex flex-column'>
-                   <span className='text-message-style'>{message.message}</span>
-                    <span className='sent-message-time'>
+                    <span className='text-message-style'>
+                      {message.message}
+                    </span>
+                    <span className='sent-message-time d-flex justify-content-between'>
                       {getFullTimeLastSeen(new Date(message.createdAt))}
+                      <span>
+                        <RiCheckDoubleLine size={15} />
+                      </span>
                     </span>
                   </p>
                 </div>

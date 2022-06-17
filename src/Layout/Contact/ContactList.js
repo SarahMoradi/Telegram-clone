@@ -4,14 +4,12 @@ import { OffCanvas, OffCanvasMenu } from 'react-offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import { BiLogOutCircle } from 'react-icons/bi';
 import Contact from './Contact';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { MdAssignmentInd } from 'react-icons/md';
 import { MdOutlineClose } from 'react-icons/md';
+import OptionList from '../OffCanvas/ListOptions';
 import { fetchUsers } from '../../redux/user/UserAction';
 import mainSocket from '../../Services/io-config';
-import { useNavigate } from 'react-router-dom';
 
 const userId = localStorage.getItem('userId');
 
@@ -28,26 +26,14 @@ const ContactList = () => {
   const { users, error, loading } = userData;
   const [state, setState] = useState(false);
   const [usersLastMessage, setUsersLastMessage] = useState({});
-  const navigate = useNavigate();
   receiveMessage(setUsersLastMessage, usersLastMessage);
-  const logoutHandler = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    navigate('/authentication/login');
-  };
-  const signUpHandler = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    navigate('/authentication/sign-up');
-  };
+
   const handleClick = () => {
     setState(!state);
   };
-  // receiveMessage(setMessages, messages)
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
-
   return (
     <div>
       <div className='contact-list-header d-flex'>
@@ -92,23 +78,10 @@ const ContactList = () => {
                         {user.firstName} {user.lastName}
                       </p>
                       <p>+98 {user.phoneNumber}</p>
-                      <div className='d-flex align-items-center option-list-in-offcanvas mt-3 mx-2'>
-                        <span onClick={signUpHandler}>
-                          <MdAssignmentInd
-                            size={23}
-                            className='icons-in-options-list'
-                          />
-                          Sign up
-                        </span>
-                      </div>
-                      <div className='d-flex align-items-center option-list-in-offcanvas mt-1 mx-2'>
-                        <span onClick={logoutHandler}>
-                          <BiLogOutCircle
-                            size={23}
-                            className='icons-in-options-list'
-                          />
-                          Log out
-                        </span>
+                      <OptionList />
+                      <div className='offcanvas-info-details'>
+                        <div>Telegram Web</div>
+                        <div>Version 1.3.0</div>
                       </div>
                     </div>
                   );

@@ -29,6 +29,7 @@ const SendMessage = () => {
               placeholder='Write message ...'
               value={currentMessage}
               onChange={messageInputChangeHandler}
+              onKeyPress={(e) => e.key === 'Enter' && sendMessageClickHandler()}
             />
             <InputGroupText
               disabled={!currentMessage}
