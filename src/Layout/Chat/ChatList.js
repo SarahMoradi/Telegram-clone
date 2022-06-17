@@ -30,7 +30,6 @@ const ChatList = () => {
   receiveMessage(setMessages, messages);
 
   useEffect(() => {
-    // console.log(activeChatId.id?.user?._id, 'chats');
     setLoading(true);
     setError(false);
     mainApi
@@ -72,7 +71,7 @@ const ChatList = () => {
                     <span className='sent-message-time d-flex justify-content-between'>
                       {getFullTimeLastSeen(new Date(message.createdAt))}
                       <span>
-                        <RiCheckDoubleLine size={15} />
+                        <RiCheckDoubleLine size={15} className='icon-message-check-style' />
                       </span>
                     </span>
                   </p>
