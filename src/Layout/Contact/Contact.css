@@ -88,12 +88,16 @@
   font-size: 13px;
   color: gray;
 }
-.logout-option-style {
+.option-list-in-offcanvas {
   font-size: 15px;
   cursor: pointer;
+  background-color: cornflowerblue;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
 }
-.logout-icon-style {
-  color: cornflowerblue;
-  margin: 10px 10px 10px 25px;
+.icons-in-options-list {
+  color: #fff;
+  margin: 5px 20px 5px 25px;
   cursor: pointer;
 }

@@ -4,8 +4,10 @@ import { OffCanvas, OffCanvasMenu } from 'react-offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
+import { BiLogOutCircle } from 'react-icons/bi';
 import Contact from './Contact';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdAssignmentInd } from 'react-icons/md';
 import { MdOutlineClose } from 'react-icons/md';
 import { fetchUsers } from '../../redux/user/UserAction';
 import mainSocket from '../../Services/io-config';
@@ -32,6 +34,11 @@ const ContactList = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     navigate('/authentication/login');
+  };
+  const signUpHandler = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    navigate('/authentication/sign-up');
   };
   const handleClick = () => {
     setState(!state);
@@ -85,8 +92,23 @@ const ContactList = () => {
                         {user.firstName} {user.lastName}
                       </p>
                       <p>+98 {user.phoneNumber}</p>
-                      <div>
-                        <span onClick={logoutHandler}>Log out</span>
+                      <div className='d-flex align-items-center option-list-in-offcanvas mt-3 mx-2'>
+                        <span onClick={signUpHandler}>
+                          <MdAssignmentInd
+                            size={23}
+                            className='icons-in-options-list'
+                          />
+                          Sign up
+                        </span>
+                      </div>
+                      <div className='d-flex align-items-center option-list-in-offcanvas mt-1 mx-2'>
+                        <span onClick={logoutHandler}>
+                          <BiLogOutCircle
+                            size={23}
+                            className='icons-in-options-list'
+                          />
+                          Log out
+                        </span>
                       </div>
                     </div>
                   );
