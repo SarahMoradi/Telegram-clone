@@ -15,20 +15,9 @@ const OptionList = () => {
     localStorage.removeItem('userId');
     navigate('/authentication/sign-up');
   };
-  const savedMessageHandler = () => {
-    console.log('Saved Message');
-  };
+
   return (
     <>
-      <div
-        onClick={savedMessageHandler}
-        className='d-flex align-items-center option-list-in-offcanvas mt-3 mx-2'
-      >
-        <span>
-          <MdSaveAlt size={23} className='icons-in-options-list' />
-          Saved Message
-        </span>
-      </div>
       <div
         onClick={signUpHandler}
         className='d-flex align-items-center option-list-in-offcanvas mt-2 mx-2'

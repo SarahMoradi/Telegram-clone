@@ -25,7 +25,7 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem('userId', res.data.data.user);
         localStorage.setItem('token', res.data.data.token);
-        toast.success('کاربر با موفقیت وارد شد');
+        toast.success('You have been Logged in successfully!');
         history('/home-page');
       })
       .catch((err) => {
