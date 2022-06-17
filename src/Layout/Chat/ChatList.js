@@ -64,8 +64,8 @@ const ChatList = () => {
                   }
                   key={message._id}
                 >
-                  <p className='d-flex flex-column text-message-style'>
-                    {message.message}
+                  <p className='d-flex flex-column'>
+                   <span className='text-message-style'>{message.message}</span>
                     <span className='sent-message-time'>
                       {getFullTimeLastSeen(new Date(message.createdAt))}
                     </span>

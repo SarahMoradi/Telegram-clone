@@ -84,7 +84,16 @@
   margin-right: 20px;
   margin-top: -25px;
 }
-.contact-last-message-time{
+.contact-last-message-time {
   font-size: 13px;
   color: gray;
+}
+.logout-option-style {
+  font-size: 15px;
+  cursor: pointer;
+}
+.logout-icon-style {
+  color: cornflowerblue;
+  margin: 10px 10px 10px 25px;
+  cursor: pointer;
 }

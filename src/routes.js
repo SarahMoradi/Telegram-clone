@@ -7,7 +7,6 @@ const routes = [
   { path: '/', element: <></> },
   { path: '/chat', element: <Home /> },
   { path: '/home-page', element: <HomePage /> },
-  { path: '/authentication', element: <></> },
   { path: '/authentication/sign-up', element: <Signup /> },
   { path: '/authentication/login', element: <Login /> },
   { path: '*', element: <>404</> },
