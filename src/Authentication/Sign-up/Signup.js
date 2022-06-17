@@ -7,7 +7,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import axios from "axios";
 import mainApi from "../../Services/axios-config";
 import styles from "./Signup.module.css";
 import { toast } from "react-toastify";

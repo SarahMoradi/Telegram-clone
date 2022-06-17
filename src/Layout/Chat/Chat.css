@@ -104,3 +104,43 @@
   direction: rtl;
   font-family: Arial, Helvetica, sans-serif;
 }
+.display-chat-container {
+  height: 82% !important;
+  background-image: url('/public/background.jpg');
+  background-size: cover;
+  overflow: auto;
+}
+
+.sender-message-styles p {
+  background-color: #fff;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin: 4px 1px;
+  justify-content: end;
+  width: fit-content;
+}
+.receiver-message-styles p {
+  text-align: right !important;
+  background-color: #fff;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin: 4px 1px;
+  justify-content: start;
+  width: fit-content;
+  max-width: 270px;
+  margin-left: auto;
+}
+.sender-message-styles {
+  display: flex;
+  flex-direction: column;
+}
+.receiver-message-styles {
+  display: flex;
+  flex-direction: column;
+}
